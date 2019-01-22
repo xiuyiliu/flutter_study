@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'package:flutter_study/routes/application.dart';
+
 class HomePage extends StatefulWidget {
   @override
   _HomePageState createState() => _HomePageState();
@@ -21,7 +23,13 @@ class _HomePageState extends State<HomePage> with AutomaticKeepAliveClientMixin 
   Widget build(BuildContext context) {
     return Container(
         child: new Center(
-          child: new Text('Home'),
+          child: new RaisedButton(
+            onPressed: () {
+              Application.router.navigateTo(context, '/');
+            },
+            child: new Text('navigator'),
+          )
+
         )
     );
   }

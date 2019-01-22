@@ -1,17 +1,27 @@
 import 'package:flutter/material.dart';
+import 'package:fluro/fluro.dart';
 
 import 'package:flutter_study/views/home/index.dart';
 import 'package:flutter_study/views/categories/index.dart';
 import 'package:flutter_study/views/cart/index.dart';
 import 'package:flutter_study/views/account/index.dart';
+import 'package:flutter_study/routes/routes.dart';
+import 'package:flutter_study/routes/application.dart';
 
 
 class MyApp extends StatefulWidget {
+
   @override
   _MyAppState createState() => _MyAppState();
 }
 
 class _MyAppState extends State<MyApp> with SingleTickerProviderStateMixin{
+
+  _MyAppState() {
+    final router = new Router();
+    Routes.configureRoutes(router);
+    Application.router = router;
+  }
 
   int _currentIndex = 0;
   var _controller = PageController(
