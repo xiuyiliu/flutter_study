@@ -25,7 +25,7 @@ class _HomePageState extends State<HomePage> with AutomaticKeepAliveClientMixin 
         child: new Center(
           child: new RaisedButton(
             onPressed: () {
-              Application.router.navigateTo(context, '/');
+              Application.router.navigateTo(context, '/order');
             },
             child: new Text('navigator'),
           )

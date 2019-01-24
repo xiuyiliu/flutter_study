@@ -7,6 +7,7 @@ import 'package:flutter_study/views/cart/index.dart';
 import 'package:flutter_study/views/account/index.dart';
 import 'package:flutter_study/routes/routes.dart';
 import 'package:flutter_study/routes/application.dart';
+import 'package:flutter_study/styles/index.dart';
 
 
 class MyApp extends StatefulWidget {
@@ -42,6 +43,8 @@ class _MyAppState extends State<MyApp> with SingleTickerProviderStateMixin{
       theme: ThemeData(
         scaffoldBackgroundColor: Colors.white,
         primarySwatch: Colors.orange,
+        primaryColor: Colors.white,
+
       ),
       home: Scaffold(
         body: PageView(

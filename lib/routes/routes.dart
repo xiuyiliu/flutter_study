@@ -4,6 +4,7 @@ import 'package:flutter_study/routes/route_handlers.dart';
 
 class Routes {
   static String root = '/';
+  static String order = '/order';
 
   static void configureRoutes(Router router) {
     router.notFoundHandler = new Handler(
@@ -12,6 +13,7 @@ class Routes {
       });
 
     router.define(root, handler: rootHandler);
+    router.define(order, handler: orderHandler);
   }
 }
 
