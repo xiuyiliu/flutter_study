@@ -31,6 +31,21 @@ Map<String,dynamic> orderSummaryData = {
       "count": 3
     },
   ]
+};
 
-
+Map<String,dynamic> initialOrderSummaryData = {
+  "subtotal": 0,
+  "discount": 0,
+  "total": 0,
+  "shipping": "Malling",
+  "goodsInfoList": [
+    {
+      "title": 'Love And Peace',
+      "desc": 'love and peace',
+      "sku": 'Black L',
+      "priceBefore": 0,
+      "priceAfter": 0,
+      "count": 0
+    },
+  ]
 };

@@ -23,6 +23,8 @@ dependencies:
   fluro: "^1.4.0"
   # flutter dio
   dio: ^1.0.9
+  # rxdart
+  rxdart: ^0.18.1
 
 dev_dependencies:
   flutter_test:
