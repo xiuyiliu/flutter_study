@@ -7,7 +7,7 @@ class OrderSummaryModel {
   String shipping;
   List goodsInfoList;
 
-  OrderSummaryModel.fromJson(dynamic json) {
+  OrderSummaryModel.fromJson(Map<String,dynamic> json) {
     subtotal = json['subtotal'];
     discount = json['discount'];
     total = json['total'];

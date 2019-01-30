@@ -11,8 +11,8 @@ class BlocEventStateBuilder<BlocState> extends StatelessWidget {
     @required this.builder,
     @required this.bloc,
   }) : assert(builder != null),
-        assert(bloc != null),
-        super(key: key);
+       assert(bloc != null),
+       super(key: key);
 
   final BlocEventStateBase<BlocEvent, BlocState> bloc;
   final AsyncBlocStateBuilder<BlocState> builder;

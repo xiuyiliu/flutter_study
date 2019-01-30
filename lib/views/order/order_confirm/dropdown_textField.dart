@@ -48,22 +48,20 @@ class _DropdownTextFieldState extends State<DropdownTextField> {
         isEmpty: widget.formData[widget.type] == null,
         child: DropdownButtonHideUnderline(
           child:  DropdownButton<String>(
-//              iconSize: 38.0,
-              isExpanded: true,
-//              isDense: true,
-              elevation: 0,
-              value: widget.formData[widget.type],
-              items: widget.optionList.map((value) {
-                return DropdownMenuItem<String>(
-                  value: value,
-                  child: Text(value),
-                );
-              }).toList(),
-              onChanged: (String newValue) {
-                setState(() {
-                  widget.formData[widget.type] = newValue;
-                });
-              }
+            isExpanded: true,
+            elevation: 0,
+            value: widget.formData[widget.type],
+            items: widget.optionList.map((value) {
+              return DropdownMenuItem<String>(
+                value: value,
+                child: Text(value),
+              );
+            }).toList(),
+            onChanged: (String newValue) {
+              setState(() {
+                widget.formData[widget.type] = newValue;
+              });
+            }
           ),
         )
       ),

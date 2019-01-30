@@ -90,8 +90,8 @@ class _OrderSummaryContentState extends State<OrderSummaryContent> {
       padding: const EdgeInsets.symmetric(horizontal: 15.0,vertical: 10.0),
       child: Container(
         decoration: BoxDecoration(
-            color: AppColors.color_fff,
-            borderRadius: BorderRadius.circular(15.0)
+          color: AppColors.color_fff,
+          borderRadius: BorderRadius.circular(15.0)
         ),
         child: StreamBuilder(
           stream: orderConfirmPageBloc.orderSummaryStream,

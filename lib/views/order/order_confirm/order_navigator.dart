@@ -4,7 +4,11 @@ import 'package:flutter_study/styles/index.dart';
 /// 页面项目导航栏
 class OrderNavigator extends StatelessWidget {
 
-  OrderNavigator({Key key,@required this.icon,@required this.title}) : super(key:key);
+  OrderNavigator({
+    Key key,
+    @required this.icon,
+    @required this.title
+  }) : super(key:key);
 
   final IconData icon;
   final String title;
@@ -14,9 +18,9 @@ class OrderNavigator extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.all(10.0),
       decoration: BoxDecoration(
-          border: Border(
-              bottom: BorderSide(color: AppColors.color_eee)
-          )
+        border: Border(
+          bottom: BorderSide(color: AppColors.color_eee)
+        )
       ),
       child: new Row(
         children: <Widget>[

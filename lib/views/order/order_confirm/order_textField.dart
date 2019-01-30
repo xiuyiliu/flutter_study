@@ -3,7 +3,11 @@ import 'package:flutter_study/styles/index.dart';
 
 /// 页面输入框
 class OrderTextField extends StatefulWidget {
-  OrderTextField({Key key,this.hintText,this.keyboardType}) : super(key:key);
+  OrderTextField({
+    Key key,
+    this.hintText,
+    this.keyboardType
+  }) : super(key:key);
 
   String hintText;
   TextInputType keyboardType;

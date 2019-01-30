@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:flutter_study/routes/application.dart';
+import 'package:flutter_study/widgets/toast.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -25,7 +26,8 @@ class _HomePageState extends State<HomePage> with AutomaticKeepAliveClientMixin 
         child: new Center(
           child: new RaisedButton(
             onPressed: () {
-              Application.router.navigateTo(context, '/order');
+//              Application.router.navigateTo(context, '/order');
+              Toast.toast(context: context,msg: '克莱斯勒看');
             },
             child: new Text('navigator'),
           )

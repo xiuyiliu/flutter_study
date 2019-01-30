@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 import 'package:flutter_study/styles/index.dart';
-import 'package:flutter_study/utils/index.dart';
 import 'order_textField.dart';
 import 'dropdown_textField.dart';
 import 'order_navigator.dart';
@@ -17,6 +16,11 @@ List<String> Country = [
   '加拿大',
 ];
 
+Map<String,dynamic> orderData = {
+  "country": null,
+  "city": null,
+};
+
 List<String> City = [
   '东京',
   '北京',
@@ -28,11 +32,6 @@ List<String> PaymentMethod = [
   'cach on delivery'
 ];
 
-Map<String,dynamic> orderData = {
-  "city": null,
-  "country": null
-};
-
 Map<String,dynamic> PayMent = {
   "payment": null
 };
@@ -43,6 +42,14 @@ class Order extends StatefulWidget {
 }
 
 class _OrderState extends State<Order> {
+
+  /// 输入框控制器
+  TextEditingController _nameController = new TextEditingController();
+  TextEditingController _adressController = new TextEditingController();
+  TextEditingController _stateController = new TextEditingController();
+  TextEditingController _cityController = new TextEditingController();
+  TextEditingController _zipCodeController = new TextEditingController();
+  TextEditingController _phoneController = new TextEditingController();
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
@@ -100,7 +107,7 @@ class _OrderState extends State<Order> {
               width: MediaQuery.of(context).size.width,
               child: new RaisedButton(
                 onPressed: () {
-                  print('asdlf');
+                  print(orderData);
                 },
                 child: new Text('Submit Order'),
                 color: AppColors.color_main,
