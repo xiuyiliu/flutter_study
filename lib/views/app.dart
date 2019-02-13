@@ -7,7 +7,6 @@ import 'package:flutter_study/views/cart/index.dart';
 import 'package:flutter_study/views/account/index.dart';
 import 'package:flutter_study/routes/routes.dart';
 import 'package:flutter_study/routes/application.dart';
-import 'package:flutter_study/styles/index.dart';
 
 
 class MyApp extends StatefulWidget {
@@ -28,6 +27,14 @@ class _MyAppState extends State<MyApp> with SingleTickerProviderStateMixin{
   var _controller = PageController(
     initialPage: 0
   );
+  /// 当允许用户自己滚动时，保持页面和底部导航栏同步
+//  void _pageChanged(int index) {
+//    setState(() {
+//      if (_currentIndex != index) {
+//        _currentIndex = index;
+//      }
+//    });
+//  }
 
   @override
   void initState() {
@@ -44,12 +51,16 @@ class _MyAppState extends State<MyApp> with SingleTickerProviderStateMixin{
         scaffoldBackgroundColor: Colors.white,
         primarySwatch: Colors.orange,
         primaryColor: Colors.white,
-
       ),
       home: Scaffold(
+        /// 使用PageView实现方式，通过子页面state实现AutomaticKeepAliveClientMixin
+        /// 达到切换各各面保持状态的效果
         body: PageView(
           controller: _controller,
+          /// 不允许用户自己滚动
           physics: NeverScrollableScrollPhysics(),
+          /// 如果允许用户自己滚动，需要监听滚动，保持页面和底部导航栏同步
+//          onPageChanged: _pageChanged,
           children: <Widget>[
             HomePage(),
             CategoriesPage(),
