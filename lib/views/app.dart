@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fluro/fluro.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 
 import 'package:flutter_study/views/home/index.dart';
 import 'package:flutter_study/views/categories/index.dart';
@@ -52,6 +53,14 @@ class _MyAppState extends State<MyApp> with SingleTickerProviderStateMixin{
         primarySwatch: Colors.orange,
         primaryColor: Colors.white,
       ),
+      localizationsDelegates: [                             //此处
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+      ],
+      supportedLocales: [
+        const Locale('en','US'),//此处
+        const Locale('zh','CH'),
+      ],
       home: Scaffold(
         /// 使用PageView实现方式，通过子页面state实现AutomaticKeepAliveClientMixin
         /// 达到切换各各面保持状态的效果

@@ -5,8 +5,12 @@ import 'package:flutter_study/routes/route_handlers.dart';
 class Routes {
   static String root = '/';
   static String order = '/order';
+  static String commodityDetail = '/commodity-detail';
   /// demo
   static String frostedGlass = '/frosted-glass';
+  static String searchBar = '/search-bar';
+  static String dateTimePicker = '/datetime-picker';
+  static String videoPlayer = '/video-player';
 
   static void configureRoutes(Router router) {
     router.notFoundHandler = new Handler(
@@ -17,6 +21,10 @@ class Routes {
     router.define(root, handler: rootHandler);
     router.define(order, handler: orderHandler);
     router.define(frostedGlass, handler: frostedGlassHandler);
+    router.define(searchBar, handler: searchBarHandler);
+    router.define(commodityDetail, handler: commodityDetailHandler);
+    router.define(dateTimePicker, handler: dateTimePickerHandler);
+    router.define(videoPlayer, handler: videoPlayerHandler);
   }
 }
 
