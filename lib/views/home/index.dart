@@ -3,7 +3,27 @@ import 'package:flutter/material.dart';
 import 'package:flutter_study/widgets/toast.dart';
 import 'package:flutter_study/routes/application.dart';
 import 'package:flutter_study/routes/routes.dart';
+import 'package:flutter_study/language/translation.dart';
 
+/// 按钮
+class ButtonItem {
+  ButtonItem({this.routePath,this.text});
+  final String routePath;
+  final String text;
+}
+/// 按钮路径及文本列表数据
+List<Map<String,String>> ButtonListData = [
+  {"text": "订单", "path": "/order"},
+  {"text": "毛玻璃", "path": "/frosted-glass"},
+  {"text": "搜索框", "path": "/search-bar"},
+  {"text": "日期选择", "path": "/datetime-picker"},
+  {"text": "视频组件", "path": "/video-player"},
+  {"text": "国际化", "path": "/language-selcet"},
+  {"text": "获取设备信息", "path": "/device-info"},
+  {"text": "动画", "path": "/animation"},
+];
+/// 按钮路径及文本列表
+List<ButtonItem> ButtonList = ButtonListData.map((item) => ButtonItem(routePath: item['path'],text: item['text'])).toList();
 class HomePage extends StatefulWidget {
   @override
   _HomePageState createState() => _HomePageState();
@@ -45,21 +65,32 @@ class _HomePageState extends State<HomePage> with AutomaticKeepAliveClientMixin 
         top: true,
         child: new WillPopScope(
           onWillPop: _onWillPop,
-          child: new Center(
-            child: new RaisedButton(
-              onPressed: () {
-//              Application.router.navigateTo(context, '/order');
-//              Toast.toast(context: context,msg: '克莱斯勒看');
-//                Application.router.navigateTo(context, '/frosted-glass');
-//              Application.router.navigateTo(context, '/search-bar');
-//              Application.router.navigateTo(context, Routes.dateTimePicker);
-              Application.router.navigateTo(context, Routes.videoPlayer);
-              },
-              child: new Text('navigator'),
-            )
+          child: new Wrap(
+            spacing: 15.0,
+            runSpacing: 15.0,
+            children: ButtonList.map((item) => CustomRaisedButton(text: item.text,routePath: item.routePath,)).toList()
           )
         ),
       ),
+    );
+  }
+}
+
+
+class CustomRaisedButton extends StatelessWidget{
+
+  CustomRaisedButton({Key key,this.routePath,this.text}):super(key:key);
+  final String routePath;
+  final String text;
+
+  @override
+  Widget build(BuildContext context) {
+    // TODO: implement build
+    return RaisedButton(
+      onPressed: () {
+        Application.router.navigateTo(context, this.routePath);
+      },
+      child: new Text(this.text),
     );
   }
 }

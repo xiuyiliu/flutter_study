@@ -8,6 +8,9 @@ import 'package:flutter_study/views/demo/frosted_glass.dart';
 import 'package:flutter_study/views/demo/search_bar.dart';
 import 'package:flutter_study/views/demo/datetime_picker.dart';
 import 'package:flutter_study/views/demo/video_player.dart';
+import 'package:flutter_study/views/demo/language_select.dart';
+import 'package:flutter_study/views/demo/device_info.dart';
+import 'package:flutter_study/views/demo/animation.dart';
 
 
 
@@ -38,4 +41,16 @@ var dateTimePickerHandler = new Handler(
 var videoPlayerHandler = new Handler(
     handlerFunc: (BuildContext context, Map<String, List<String>> params) {
       return new VideoPlayerDemo();
+    });
+var languageSelectHandler = new Handler(
+    handlerFunc: (BuildContext context, Map<String, List<String>> params) {
+      return new LanguageSelectDemo();
+    });
+var deviceInfoHandler = new Handler(
+    handlerFunc: (BuildContext context, Map<String, List<String>> params) {
+      return new DeviceInfoDemo();
+    });
+var AnimationHandler = new Handler(
+    handlerFunc: (BuildContext context, Map<String, List<String>> params) {
+      return new AnimationDemo();
     });

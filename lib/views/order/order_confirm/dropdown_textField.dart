@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_study/styles/index.dart';
+import 'package:flutter_study/views/order/order_confirm/index.dart';
 
 /// 页面Dropdown TextField
 class DropdownTextField extends StatefulWidget {
@@ -31,6 +32,7 @@ class _DropdownTextFieldState extends State<DropdownTextField> {
 
   @override
   Widget build(BuildContext context) {
+    MyInheritedWidgetState state = MyInheritedWidget.of(context);
     return Container(
       height: 38.0,
       margin: const EdgeInsets.only(left: 10.0),

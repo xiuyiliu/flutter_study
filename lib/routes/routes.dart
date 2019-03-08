@@ -11,6 +11,9 @@ class Routes {
   static String searchBar = '/search-bar';
   static String dateTimePicker = '/datetime-picker';
   static String videoPlayer = '/video-player';
+  static String languageSelect = '/language-selcet';
+  static String deviceInfo = '/device-info';
+  static String animation = '/animation';
 
   static void configureRoutes(Router router) {
     router.notFoundHandler = new Handler(
@@ -25,6 +28,9 @@ class Routes {
     router.define(commodityDetail, handler: commodityDetailHandler);
     router.define(dateTimePicker, handler: dateTimePickerHandler);
     router.define(videoPlayer, handler: videoPlayerHandler);
+    router.define(languageSelect, handler: languageSelectHandler);
+    router.define(deviceInfo, handler: deviceInfoHandler);
+    router.define(animation, handler: AnimationHandler);
   }
 }
 

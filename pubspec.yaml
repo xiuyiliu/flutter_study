@@ -22,6 +22,10 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^0.1.2
 
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
   # flutter fluro
   fluro: "^1.4.0"
 
@@ -47,10 +51,16 @@ dependencies:
   video_player: ^0.9.0
   chewie: ^0.9.6
 
+  #快速生成App的launcherIcon
+  flutter_launcher_icons: "^0.7.0"
 
-dev_dependencies:
-  flutter_test:
-    sdk: flutter
+  #获取设备信息
+  device_info: ^0.4.0+1
+
+flutter_icons:
+  image_path: "assets/images/app_launcher_icon/ic_launcher.png"
+  android: true # can specify file name here e.g. "ic_launcher"
+  ios: true # can specify file name here e.g. "My-Launcher-Icon"
 
 
 # For information on the generic Dart part of this file, see the
@@ -68,10 +78,14 @@ flutter:
   assets:
    - assets/images/order/books.jpg
    - assets/images/common/avatar.jpeg
+   - assets/images/common/placeholder.png
    - assets/images/commodity_detail/like-icon.png
    - assets/images/commodity_detail/share.png
    - assets/images/commodity_detail/arrow-right-red.png
    - assets/images/commodity_detail/menu-icon.png
+   # 国际化语言包
+   - locale/i18n_en.json
+   - locale/i18n_zh.json
   #  - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

@@ -8,6 +8,8 @@ import 'package:flutter_study/views/cart/index.dart';
 import 'package:flutter_study/views/account/index.dart';
 import 'package:flutter_study/routes/routes.dart';
 import 'package:flutter_study/routes/application.dart';
+import 'package:flutter_study/language/translation.dart';
+import 'package:flutter_study/utils/index.dart';
 
 
 class MyApp extends StatefulWidget {
@@ -17,6 +19,8 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> with SingleTickerProviderStateMixin{
+
+  SpecificLocalizationDelegate _localeOverrideDelegate;
 
   _MyAppState() {
     final router = new Router();
@@ -28,6 +32,35 @@ class _MyAppState extends State<MyApp> with SingleTickerProviderStateMixin{
   var _controller = PageController(
     initialPage: 0
   );
+
+  /// 更改语言包回调方法
+  void changeLanguageCallback(languageCode) {
+    setState(() {
+      _localeOverrideDelegate = new SpecificLocalizationDelegate(new Locale(languageCode, ''));
+      if (languageCode == 'en') {
+        print('当前是英文环境,');
+      } else {
+        print('当前是中文环境');
+      }
+    });
+  }
+
+  /// 校验本地持久化语言类型方法
+  void checkLocaleLanguage() {
+    Utils.getLanguage().then((languageCode){
+      if (languageCode != null) {
+        changeLanguageCallback(languageCode);
+      }
+    });
+  }
+
+  /// 每次选择一种新的语言时，都会创造一个新的SpecificLocalizationDelegate实例，强制Translations类刷新
+  void onLocaleChange(Locale locale) {
+    Utils.saveLanguage(locale.languageCode);
+    changeLanguageCallback(locale.languageCode);
+  }
+
+
   /// 当允许用户自己滚动时，保持页面和底部导航栏同步
 //  void _pageChanged(int index) {
 //    setState(() {
@@ -42,6 +75,15 @@ class _MyAppState extends State<MyApp> with SingleTickerProviderStateMixin{
     // TODO: implement initState
     super.initState();
 //    _controller.dispose();
+
+    /// 初始化一个新的Localization Delegate,当用户选择一种新的工作语言时，可以强制初始化一个新的Translations
+    _localeOverrideDelegate = new SpecificLocalizationDelegate(new Locale('en', ''));
+
+    /// 校验本地持久化语言类型
+    checkLocaleLanguage();
+
+    /// 保存这个方法的指针，当用户改变语言时，可以强制App刷新
+    appLanguage.onLocaleChanged = onLocaleChange;
   }
 
   @override
@@ -53,14 +95,13 @@ class _MyAppState extends State<MyApp> with SingleTickerProviderStateMixin{
         primarySwatch: Colors.orange,
         primaryColor: Colors.white,
       ),
-      localizationsDelegates: [                             //此处
+      localizationsDelegates: [
         GlobalMaterialLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,
+        _localeOverrideDelegate,
+        const TranslationsDelegate(),
       ],
-      supportedLocales: [
-        const Locale('en','US'),//此处
-        const Locale('zh','CH'),
-      ],
+      supportedLocales: appLanguage.supportedLocales(),
       home: Scaffold(
         /// 使用PageView实现方式，通过子页面state实现AutomaticKeepAliveClientMixin
         /// 达到切换各各面保持状态的效果
