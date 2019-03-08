@@ -58,7 +58,7 @@ dev_dependencies:
   device_info: ^0.4.0+1
 
 flutter_icons:
-  image_path: "assets/images/app_launcher_icon/ic_launcher.png"
+  image_path: "assets/images/app_launcher_icon/launcher.png"
   android: true # can specify file name here e.g. "ic_launcher"
   ios: true # can specify file name here e.g. "My-Launcher-Icon"
 

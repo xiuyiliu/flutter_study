@@ -34,6 +34,7 @@ class _DeviceInfoDemoState extends State<DeviceInfoDemo> {
 
     }
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
