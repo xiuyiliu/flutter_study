@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_study/routes/application.dart';
 
 //class AnimationDemo extends StatefulWidget {
 //
@@ -74,7 +75,8 @@ class _AnimationDemoState extends State<AnimationDemo> with TickerProviderStateM
       ),
       floatingActionButton: new FloatingActionButton(
         onPressed: (){
-          controller.forward();
+//          controller.forward();
+          Application.router.navigateTo(context, '/application');
         },
         child: new Icon(Icons.brush),
       ),

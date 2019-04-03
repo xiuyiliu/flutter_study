@@ -5,7 +5,7 @@ typedef Widget AsyncBlocStateBuilder<BlocState>(BuildContext context, BlocState 
 
 /// 当有新的 BlocState 抛出后，将其作为新的参数值调用 builder 方法
 /// 根据最新的 BlocState 作出视图层面的响应
-class BlocEventStateBuilder<BlocState> extends StatelessWidget {
+class BlocEventStateBuilder<BlocEvent, BlocState> extends StatelessWidget {
   const BlocEventStateBuilder({
     Key key,
     @required this.builder,

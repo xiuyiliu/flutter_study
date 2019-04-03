@@ -1,6 +1,7 @@
 import 'package:meta/meta.dart';
 import 'package:rxdart/rxdart.dart';
 import 'bloc_provider.dart';
+import 'dart:async' show Stream;
 
 /// 定义 BlocEvent 和 BlocState 两个抽象类
 /// 这两个抽象类都是要根据在实际业务场景中想要触发的事件和抛出的状态来具体扩展实现

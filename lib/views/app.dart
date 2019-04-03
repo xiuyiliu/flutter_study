@@ -29,7 +29,7 @@ class _MyAppState extends State<MyApp> with SingleTickerProviderStateMixin{
   }
 
   int _currentIndex = 0;
-  var _controller = PageController(
+  PageController _controller = PageController(
     initialPage: 0
   );
 
@@ -70,6 +70,14 @@ class _MyAppState extends State<MyApp> with SingleTickerProviderStateMixin{
 //    });
 //  }
 
+  /// 四个页面列表
+  List<Widget> pageList = [
+    HomePage(),
+    CategoriesPage(),
+    CartPage(),
+    AccountPage()
+  ];
+
   @override
   void initState() {
     // TODO: implement initState
@@ -108,7 +116,7 @@ class _MyAppState extends State<MyApp> with SingleTickerProviderStateMixin{
         body: PageView(
           controller: _controller,
           /// 不允许用户自己滚动
-          physics: NeverScrollableScrollPhysics(),
+//          physics: NeverScrollableScrollPhysics(),
           /// 如果允许用户自己滚动，需要监听滚动，保持页面和底部导航栏同步
 //          onPageChanged: _pageChanged,
           children: <Widget>[
@@ -118,12 +126,21 @@ class _MyAppState extends State<MyApp> with SingleTickerProviderStateMixin{
             AccountPage()
           ],
         ),
+
+//        body: IndexedStack(
+//          index: _currentIndex,
+//          children: pageList,
+//        ),
+
+//       body: new Container(
+//         child: pageList[_currentIndex],
+//       ),
         bottomNavigationBar: BottomNavigationBar(
           currentIndex: _currentIndex,
           type: BottomNavigationBarType.fixed,
           fixedColor: Colors.orange,
           onTap: (index) {
-            _controller.jumpToPage(index);
+            _controller.animateToPage(index,duration: const Duration(milliseconds: 2000),curve: Curves.easeIn);
             setState(() {
               _currentIndex = index;
             });

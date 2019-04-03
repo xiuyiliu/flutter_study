@@ -11,46 +11,56 @@ import 'package:flutter_study/views/demo/video_player.dart';
 import 'package:flutter_study/views/demo/language_select.dart';
 import 'package:flutter_study/views/demo/device_info.dart';
 import 'package:flutter_study/views/demo/animation.dart';
+import 'package:flutter_study/views/application.dart';
+import 'package:flutter_study/views/app.dart';
+import 'package:flutter_study/views/demo/InitializationPage.dart';
 
 
-
-var rootHandler = new Handler(
+Handler rootHandler = new Handler(
   handlerFunc: (BuildContext context, Map<String, List<String>> params) {
     return new Test();
   });
-var orderHandler = new Handler(
+Handler orderHandler = new Handler(
     handlerFunc: (BuildContext context, Map<String, List<String>> params) {
       return new Order();
     });
-var frostedGlassHandler = new Handler(
+Handler frostedGlassHandler = new Handler(
     handlerFunc: (BuildContext context, Map<String, List<String>> params) {
       return new FrostedGlass();
     });
-var searchBarHandler = new Handler(
+Handler searchBarHandler = new Handler(
     handlerFunc: (BuildContext context, Map<String, List<String>> params) {
       return new SearchBarDemo();
     });
-var commodityDetailHandler = new Handler(
+Handler commodityDetailHandler = new Handler(
     handlerFunc: (BuildContext context, Map<String, List<String>> params) {
       return new CommodityDetail();
     });
-var dateTimePickerHandler = new Handler(
+Handler dateTimePickerHandler = new Handler(
     handlerFunc: (BuildContext context, Map<String, List<String>> params) {
       return new DateTimePickerDemo();
     });
-var videoPlayerHandler = new Handler(
+Handler videoPlayerHandler = new Handler(
     handlerFunc: (BuildContext context, Map<String, List<String>> params) {
       return new VideoPlayerDemo();
     });
-var languageSelectHandler = new Handler(
+Handler languageSelectHandler = new Handler(
     handlerFunc: (BuildContext context, Map<String, List<String>> params) {
       return new LanguageSelectDemo();
     });
-var deviceInfoHandler = new Handler(
+Handler deviceInfoHandler = new Handler(
     handlerFunc: (BuildContext context, Map<String, List<String>> params) {
       return new DeviceInfoDemo();
     });
-var AnimationHandler = new Handler(
+Handler animationHandler = new Handler(
     handlerFunc: (BuildContext context, Map<String, List<String>> params) {
       return new AnimationDemo();
     });
+Handler applicationHandler = new Handler(
+    handlerFunc: (BuildContext context, Map<String, List<String>> params) {
+      return new MyApp();
+    });
+Handler initializationPageHandler = new Handler(
+  handlerFunc: (BuildContext context, Map<String ,List<String>> params) {
+    return new InitializationPage();
+  });

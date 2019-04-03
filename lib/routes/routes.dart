@@ -14,6 +14,8 @@ class Routes {
   static String languageSelect = '/language-selcet';
   static String deviceInfo = '/device-info';
   static String animation = '/animation';
+  static String application = '/application';
+  static String initializationPage = '/initialization-page';
 
   static void configureRoutes(Router router) {
     router.notFoundHandler = new Handler(
@@ -30,7 +32,9 @@ class Routes {
     router.define(videoPlayer, handler: videoPlayerHandler);
     router.define(languageSelect, handler: languageSelectHandler);
     router.define(deviceInfo, handler: deviceInfoHandler);
-    router.define(animation, handler: AnimationHandler);
+    router.define(animation, handler: animationHandler);
+    router.define(application, handler: applicationHandler);
+    router.define(initializationPage, handler: initializationPageHandler);
   }
 }
 

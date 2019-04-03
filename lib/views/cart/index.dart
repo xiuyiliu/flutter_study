@@ -5,10 +5,10 @@ class CartPage extends StatefulWidget {
   _CartPageState createState() => _CartPageState();
 }
 
-class _CartPageState extends State<CartPage> with AutomaticKeepAliveClientMixin {
+class _CartPageState extends State<CartPage> with AutomaticKeepAliveClientMixin{
 
-  @override
-  // TODO: implement wantKeepAlive
+//  @override
+//  // TODO: implement wantKeepAlive
   bool get wantKeepAlive => true;
 
   @override
@@ -19,6 +19,7 @@ class _CartPageState extends State<CartPage> with AutomaticKeepAliveClientMixin 
   }
   @override
   Widget build(BuildContext context) {
+    print('cart ---------------------build');
     return Container(
         child: new Center(
           child: new Text('Cart'),

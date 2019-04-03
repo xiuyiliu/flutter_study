@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'dart:async' show Future;
 import 'package:flutter_study/widgets/toast.dart';
 import 'package:flutter_study/routes/application.dart';
 import 'package:flutter_study/routes/routes.dart';
@@ -12,7 +12,7 @@ class ButtonItem {
   final String text;
 }
 /// 按钮路径及文本列表数据
-List<Map<String,String>> ButtonListData = [
+List<Map<String,String>> buttonListData = [
   {"text": "订单", "path": "/order"},
   {"text": "毛玻璃", "path": "/frosted-glass"},
   {"text": "搜索框", "path": "/search-bar"},
@@ -21,15 +21,17 @@ List<Map<String,String>> ButtonListData = [
   {"text": "国际化", "path": "/language-selcet"},
   {"text": "获取设备信息", "path": "/device-info"},
   {"text": "动画", "path": "/animation"},
+  {"text": "事件状态BloC", "path": "/initialization-page"},
 ];
 /// 按钮路径及文本列表
-List<ButtonItem> ButtonList = ButtonListData.map((item) => ButtonItem(routePath: item['path'],text: item['text'])).toList();
+List<ButtonItem> buttonList = buttonListData.map((item) => ButtonItem(routePath: item['path'],text: item['text'])).toList();
 class HomePage extends StatefulWidget {
   @override
   _HomePageState createState() => _HomePageState();
 }
 
-class _HomePageState extends State<HomePage> with AutomaticKeepAliveClientMixin {
+class _HomePageState extends State<HomePage> with AutomaticKeepAliveClientMixin{
+
 
   @override
   // TODO: implement wantKeepAlive
@@ -56,6 +58,8 @@ class _HomePageState extends State<HomePage> with AutomaticKeepAliveClientMixin 
 
   @override
   Widget build(BuildContext context) {
+    super.build(context);//必须
+    print('build-----------home');
     return new Scaffold(
       appBar: new AppBar(
         title: new Text('Home'),
@@ -68,7 +72,7 @@ class _HomePageState extends State<HomePage> with AutomaticKeepAliveClientMixin 
           child: new Wrap(
             spacing: 15.0,
             runSpacing: 15.0,
-            children: ButtonList.map((item) => CustomRaisedButton(text: item.text,routePath: item.routePath,)).toList()
+            children: buttonList.map((item) => CustomRaisedButton(text: item.text,routePath: item.routePath,)).toList()
           )
         ),
       ),

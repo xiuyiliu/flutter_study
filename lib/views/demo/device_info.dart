@@ -39,7 +39,7 @@ class _DeviceInfoDemoState extends State<DeviceInfoDemo> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: new AppBar(
-        title: new Text('Device Info'),
+        title: new Text('Device Info',style:TextStyle(fontFamily: 'Lora')),
       ),
       body: new Column(
         mainAxisAlignment: MainAxisAlignment.start,

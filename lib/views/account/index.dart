@@ -5,11 +5,9 @@ class AccountPage extends StatefulWidget {
   _AccountPageState createState() => _AccountPageState();
 }
 
-class _AccountPageState extends State<AccountPage> with AutomaticKeepAliveClientMixin {
+class _AccountPageState extends State<AccountPage>{
 
-  @override
-  // TODO: implement wantKeepAlive
-  bool get wantKeepAlive => true;
+
 
   @override
   void initState() {
@@ -19,6 +17,7 @@ class _AccountPageState extends State<AccountPage> with AutomaticKeepAliveClient
   }
   @override
   Widget build(BuildContext context) {
+    print('build--------------account');
     return Container(
       child: new Center(
         child: new Text('account'),

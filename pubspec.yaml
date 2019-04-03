@@ -83,6 +83,8 @@ flutter:
    - assets/images/commodity_detail/share.png
    - assets/images/commodity_detail/arrow-right-red.png
    - assets/images/commodity_detail/menu-icon.png
+   - assets/images/splash_screen/splash.jpg
+   - assets/images/splash_screen/splash@2x.jpg
    # 国际化语言包
    - locale/i18n_en.json
    - locale/i18n_zh.json
@@ -110,6 +112,9 @@ flutter:
   #       - asset: fonts/TrajanPro.ttf
   #       - asset: fonts/TrajanPro_Bold.ttf
   #         weight: 700
-  #
+  fonts:
+    - family: Lora
+      fonts:
+       - asset: assets/fonts/Lora-Regular.ttf
   # For details regarding fonts from package dependencies,
   # see https://flutter.io/custom-fonts/#from-packages
