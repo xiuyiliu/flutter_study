@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_study/views/app.dart';
 import 'dart:io' show Platform;
 import 'package:flutter/services.dart' show SystemUiOverlayStyle,SystemChrome;
+import 'package:flutter/rendering.dart';
 
 void main() {
+//  debugPaintSizeEnabled = true;
   runApp(MyApp());
 
   /// 以下两行 设置android状态栏为透明的沉浸。

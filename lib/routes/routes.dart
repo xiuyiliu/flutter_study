@@ -16,6 +16,9 @@ class Routes {
   static String animation = '/animation';
   static String application = '/application';
   static String initializationPage = '/initialization-page';
+  static String pullAndRefresh = '/pull-and-refresh';
+  static String layoutDebug = '/layout-debug';
+  static String tabbar = '/tab-bar';
 
   static void configureRoutes(Router router) {
     router.notFoundHandler = new Handler(
@@ -35,6 +38,9 @@ class Routes {
     router.define(animation, handler: animationHandler);
     router.define(application, handler: applicationHandler);
     router.define(initializationPage, handler: initializationPageHandler);
+    router.define(pullAndRefresh, handler: pullAndRefreshHandler);
+    router.define(layoutDebug, handler: layoutDebugHandler);
+    router.define(tabbar, handler: tabbarHandler);
   }
 }
 

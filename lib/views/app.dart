@@ -97,6 +97,7 @@ class _MyAppState extends State<MyApp> with SingleTickerProviderStateMixin{
   @override
   Widget build(BuildContext context) {
     return new MaterialApp(
+//      debugShowMaterialGrid: true,
       title: 'flutter app',
       theme: ThemeData(
         scaffoldBackgroundColor: Colors.white,

@@ -22,6 +22,9 @@ List<Map<String,String>> buttonListData = [
   {"text": "获取设备信息", "path": "/device-info"},
   {"text": "动画", "path": "/animation"},
   {"text": "事件状态BloC", "path": "/initialization-page"},
+  {"text": "pull-and-refresh", "path": "/pull-and-refresh"},
+  {"text": "布局调试", "path":"/layout-debug"},
+  {"text": "tabbar", "path":"/tab-bar"}
 ];
 /// 按钮路径及文本列表
 List<ButtonItem> buttonList = buttonListData.map((item) => ButtonItem(routePath: item['path'],text: item['text'])).toList();
@@ -76,6 +79,12 @@ class _HomePageState extends State<HomePage> with AutomaticKeepAliveClientMixin{
           )
         ),
       ),
+      floatingActionButton: FlatButton(
+        child: new Text('调试'),
+        onPressed: () {
+          debugDumpRenderTree();
+        },
+      )
     );
   }
 }

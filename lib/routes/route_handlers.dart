@@ -11,9 +11,11 @@ import 'package:flutter_study/views/demo/video_player.dart';
 import 'package:flutter_study/views/demo/language_select.dart';
 import 'package:flutter_study/views/demo/device_info.dart';
 import 'package:flutter_study/views/demo/animation.dart';
-import 'package:flutter_study/views/application.dart';
 import 'package:flutter_study/views/app.dart';
 import 'package:flutter_study/views/demo/InitializationPage.dart';
+import 'package:flutter_study/views/demo/pull_to_refresh.dart';
+import 'package:flutter_study/views/demo/layout_debug.dart';
+import 'package:flutter_study/views/demo/tab_bar.dart';
 
 
 Handler rootHandler = new Handler(
@@ -64,3 +66,15 @@ Handler initializationPageHandler = new Handler(
   handlerFunc: (BuildContext context, Map<String ,List<String>> params) {
     return new InitializationPage();
   });
+Handler pullAndRefreshHandler = new Handler(
+    handlerFunc: (BuildContext context, Map<String ,List<String>> params) {
+      return new PullAndRefreshDemo();
+    });
+Handler layoutDebugHandler = new Handler(
+    handlerFunc: (BuildContext context, Map<String ,List<String>> params) {
+      return new LayoutDebug();
+    });
+Handler tabbarHandler = new Handler(
+    handlerFunc: (BuildContext context, Map<String ,List<String>> params) {
+      return new TabsDemo();
+    });
