@@ -14,12 +14,10 @@ class _CategoriesPageState extends State<CategoriesPage> with AutomaticKeepAlive
   void initState() {
     // TODO: implement initState
     super.initState();
-    print('Categories');
   }
   @override
   Widget build(BuildContext context) {
-    super.build(context);//必须
-    print('build --------------categories');
+    super.build(context);
     return Container(
         child: new Center(
           child: new Text('Categories'),

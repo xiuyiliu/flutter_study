@@ -15,11 +15,10 @@ class _CartPageState extends State<CartPage> with AutomaticKeepAliveClientMixin{
   void initState() {
     // TODO: implement initState
     super.initState();
-    print('Cart');
   }
   @override
   Widget build(BuildContext context) {
-    print('cart ---------------------build');
+    super.build(context);
     return Container(
         child: new Center(
           child: new Text('Cart'),

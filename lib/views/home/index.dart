@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'dart:async' show Future;
-import 'package:flutter_study/widgets/toast.dart';
-import 'package:flutter_study/routes/application.dart';
-import 'package:flutter_study/routes/routes.dart';
-import 'package:flutter_study/language/translation.dart';
+
+import 'package:flutter_study/routers/index.dart';
 
 /// 按钮
 class ButtonItem {
@@ -13,21 +11,16 @@ class ButtonItem {
 }
 /// 按钮路径及文本列表数据
 List<Map<String,String>> buttonListData = [
-  {"text": "订单", "path": "/order"},
-  {"text": "毛玻璃", "path": "/frosted-glass"},
-  {"text": "搜索框", "path": "/search-bar"},
-  {"text": "日期选择", "path": "/datetime-picker"},
-  {"text": "视频组件", "path": "/video-player"},
-  {"text": "国际化", "path": "/language-selcet"},
-  {"text": "获取设备信息", "path": "/device-info"},
-  {"text": "动画", "path": "/animation"},
-  {"text": "事件状态BloC", "path": "/initialization-page"},
-  {"text": "pull-and-refresh", "path": "/pull-and-refresh"},
-  {"text": "布局调试", "path":"/layout-debug"},
-  {"text": "tabbar", "path":"/tab-bar"}
+  {"text": "调试", "path":"/layout-debug"},
+  {"text": "时间选择器", "path":"/date-time-picker"},
+  {"text": "context探索", "path":"/context-explore"},
+  {"text": "state探索", "path":"/state-explore"},
+  {"text": "custom-stepper", "path":"/custom-stepper"},
+  {"text": "widget-study", "path":"/widget-study"},
 ];
 /// 按钮路径及文本列表
 List<ButtonItem> buttonList = buttonListData.map((item) => ButtonItem(routePath: item['path'],text: item['text'])).toList();
+
 class HomePage extends StatefulWidget {
   @override
   _HomePageState createState() => _HomePageState();
@@ -56,13 +49,11 @@ class _HomePageState extends State<HomePage> with AutomaticKeepAliveClientMixin{
   void initState() {
     // TODO: implement initState
     super.initState();
-    print('Home');
   }
 
   @override
   Widget build(BuildContext context) {
-    super.build(context);//必须
-    print('build-----------home');
+    super.build(context);
     return new Scaffold(
       appBar: new AppBar(
         title: new Text('Home'),
@@ -75,35 +66,16 @@ class _HomePageState extends State<HomePage> with AutomaticKeepAliveClientMixin{
           child: new Wrap(
             spacing: 15.0,
             runSpacing: 15.0,
-            children: buttonList.map((item) => CustomRaisedButton(text: item.text,routePath: item.routePath,)).toList()
+            children: buttonList.map((item) => RaisedButton(
+              child: Text(item.text),
+              onPressed: () {
+                ApplicationRouter.router.navigateTo(context, item.routePath);
+              },
+            )).toList()
           )
         ),
       ),
-      floatingActionButton: FlatButton(
-        child: new Text('调试'),
-        onPressed: () {
-          debugDumpRenderTree();
-        },
-      )
     );
   }
 }
 
-
-class CustomRaisedButton extends StatelessWidget{
-
-  CustomRaisedButton({Key key,this.routePath,this.text}):super(key:key);
-  final String routePath;
-  final String text;
-
-  @override
-  Widget build(BuildContext context) {
-    // TODO: implement build
-    return RaisedButton(
-      onPressed: () {
-        Application.router.navigateTo(context, this.routePath);
-      },
-      child: new Text(this.text),
-    );
-  }
-}

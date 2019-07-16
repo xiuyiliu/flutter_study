@@ -13,11 +13,9 @@ class _AccountPageState extends State<AccountPage>{
   void initState() {
     // TODO: implement initState
     super.initState();
-    print('account');
   }
   @override
   Widget build(BuildContext context) {
-    print('build--------------account');
     return Container(
       child: new Center(
         child: new Text('account'),
